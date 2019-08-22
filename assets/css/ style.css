@@ -1,0 +1,11 @@
+/* Current Word */
+
+div#current-word span {
+    border-bottom: 1px solid red;
+    width: 20px;
+    display: block;
+}
+
+div#current-word span:nth-child(even) {
+    margin: 0 5px;
+}
