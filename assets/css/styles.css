@@ -1,0 +1,21 @@
+body {
+    background:#000;
+    color: #fff;
+}
+
+/* Current Word */
+#current-word {
+
+}
+
+#current-word span {
+    border-bottom: 1px solid red;
+    width: 20px;
+    display: inline-block;
+}
+
+#current-word span:nth-child(even) {
+    margin: 0 5px;
+}
+
+
