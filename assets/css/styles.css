@@ -8,13 +8,13 @@ body {
 
 }
 
-#current-word span {
+#current-word li {
     border-bottom: 1px solid red;
     width: 20px;
     display: inline-block;
 }
 
-#current-word span:nth-child(even) {
+#current-word li:nth-child(even) {
     margin: 0 5px;
 }
 

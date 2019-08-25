@@ -4,6 +4,7 @@
         <title>Sean's Game</title>
         <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
         <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+        <script src="assets/javascript/jquery.js"></script>
     </head>
     <body>
         <div class="container">
@@ -11,14 +12,23 @@
 
             </div>
             <div class="col-1-2">
-                <h2>Press any key to get started!</h2>
-                <h2>Wins</h2>
                 <h2>Current Word</h2>
                 <div id="current-word">
-                    
+                    <ul id="current-container">
+
+                    </ul>
                 </div>
                 <h2>Guesses Remaining:</h2>
+                <div class="guesses-left-container">
+                    <p>
+                        5
+                    </p>
+                    
+                </div>
                 <h2>Letters already Gueesed</h2>
+                <ul id="guessed-container">
+
+                </ul>
             </div>
         </div>
     </body>
