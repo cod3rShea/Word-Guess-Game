@@ -2,7 +2,6 @@
     Arrays/Var
 ************************/
 var guesses = 5;
-var correctLetters = [];
 var wrongLetters = [];
 var placeHolder = [];
 
@@ -21,36 +20,57 @@ console.log(selectedBand);
 
 // add place holder based on length of band name
 for (i = 0; i < selectedBand.length; i++) {
-    placeHolder.push("<li></li>");
-}
-
-for (j = 0; j < placeHolder.length; j++) {
-    $('#current-container').append('');
-}
-
-
+    selectedBand[i] === " " ? placeHolder.push(" ") : placeHolder.push("_");
+  }
+  
 $('#current-container').append(placeHolder);
 
 // press key function
-$(document).keypress( function(e) {
+
+if (selectedBand == "ajj"){
+	$('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "bob dylan") {
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/dylan.jpg");
+} else if (selectedBand == "cat be damned"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "Coma Cinema"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "David Bowie"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "Days N Daze"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "elvis depressedly"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "HIM"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "Hotel Books"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if ( "Johnny Hobo And The Freight Trains"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "mathew lee cothranm"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "My Chemical Romance"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "My Pizza My World"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "Old Gray"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "Ramshackle Glory"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "teen suicide"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "The Front Bottoms"){
+    $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+} else if (selectedBand == "The Hotelier") {
+	
+} else {
+
+}
+
+$(document).keypress(function(e) {
     var letterClicked = String.fromCharCode(e.which);
-    
-    if (selectedBand.indexOf(letterClicked)  > -1 ){
-        // adds correct letter to the array
-        correctLetters.push(letterClicked);
-    
-        placeHolder[selectedBand.indexOf(letterClicked)] = letterClicked;
-        //  combines the array
-        var joinArray = placeHolder.join("");
-        
-        // appand 
-        $('#current-container').html("").append(joinArray);
-        
-        if (joinArray == selectedBand) {
-            alert("you win");
-            location.reload();
-        }
-    } else {
+  
+    if (selectedBand.indexOf(letterClicked) < 0) {
         // add wrong guess to wrong letter array
         wrongLetters.push(letterClicked);
         
@@ -66,10 +86,32 @@ $(document).keypress( function(e) {
             // update guess container
             $('.guesses-left-container').html("").append(guesses);
         }
-        
+    } else {
+        // split selected band string and map through it.
+        selectedBand.split("").map((letter, index) => {
+            // checks to see if one of the split letters are equal to the button pressed
+            if (letter.toLowerCase() === letterClicked) {
+                placeHolder[index] = selectedBand[index];
+            } 
+        });
+      
+    }
 
-    }    
-});
+     $('#current-container').html(placeHolder);
+    
+     // checks to see if the placeholder is equal to the band name
+    if (placeHolder.join("") == selectedBand) {
+        // runs after letter checked
+        setTimeout(() => {
+                alert("you win");
+        });
+        // reloads game
+        location.reload();
+    }
+
+  });
+
+
 
 
 
