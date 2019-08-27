@@ -34,11 +34,10 @@ h1 {
     font-size: 21px;
 }
 
-iframe,
+.video,
 .button-options {
     display:none;
 }
-
 
 .reset-button {
     position: relative;
