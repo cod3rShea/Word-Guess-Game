@@ -3,19 +3,73 @@ body {
     color: #fff;
 }
 
+h1 {
+    text-align: center;
+}
+
 /* Current Word */
-#current-word {
-
+.container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-#current-word li {
-    border-bottom: 1px solid red;
-    width: 20px;
-    display: inline-block;
+.col-1-2 {
+    width: 50%;
+}
+.col-1-2 img{
+    width: 250px;
+    height: 250px;
 }
 
-#current-word li:nth-child(even) {
-    margin: 0 5px;
+.images-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#current-container,
+#guessed-container  {
+    letter-spacing: 10px;
+    font-size: 21px;
+}
+
+iframe,
+.button-options {
+    display:none;
 }
 
 
+.reset-button {
+    position: relative;
+    top: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 0 0 #6B2A4A;
+    display: block;
+    background: #a47;
+    color: #eee;
+    padding: 15px;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.2em;
+    opacity: 0.9;
+    border-radius: 10px;
+    max-width: 150px;
+    text-align: center;
+  }
+  
+  .reset-button:active {
+    box-shadow: none;
+    top: 10px;
+    margin-bottom: 0;
+  }
+  
+  .reset-button:hover {
+    opacity: 1;
+  }
+  
+  .reset-button:active,
+  .reset-button:focus {
+    outline: 0;
+  }

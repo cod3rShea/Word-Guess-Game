@@ -136,12 +136,95 @@ $(document).keypress(function(e) {
     
      // checks to see if the placeholder is equal to the band name
     if (placeHolder.join("") == selectedBand) {
-        // runs after letter checked
-        setTimeout(() => {
-                alert("you win");
+       
+        if (selectedBand == "ajj"){
+    
+            $('.band-img iframe').attr("src","https://www.youtube.com/watch?v=qGSkviwvjD0");
+        
+        } else if (selectedBand == "bob dylan") {
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/dylan.jpg");
+        
+        } else if (selectedBand == "cat be damned"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/cat.jpg");
+        
+        } else if (selectedBand == "coma cinema"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/coma.jpg");
+        
+        } else if (selectedBand == "david bowie"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/bowie.jpg");
+        
+        } else if (selectedBand == "days n daze"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/daze.jpg");
+        
+        } else if (selectedBand == "elvis depressedly"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/elvis.jpg");
+        
+        } else if (selectedBand == "him"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/him.jpg");
+        
+        } else if (selectedBand == "hotel books"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/hotel.jpg");
+        
+        } else if ( selectedBand == "johnny hobo and the freight trains"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/johny.jpg");
+        
+        } else if (selectedBand == "mathew lee cothranm"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/mathew.jpg");
+        
+        } else if (selectedBand == "my chemical romance"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/mcr.jpg");
+        
+        } else if (selectedBand == "my pizza my world"){
+            
+            $('.band-img iframe').attr("src","../Word-Guess-Game/assets/images/pizza.jpg");
+        
+        } else if (selectedBand == "old gray"){
+            
+            $('.band-img frame').attr("src","../Word-Guess-Game/assets/images/old.jpg");
+        
+        } else if (selectedBand == "ramshackle glory"){
+            
+            $('.band-img frame').attr("src","../Word-Guess-Game/assets/images/ram.jpg");
+        
+        } else if (selectedBand == "teen suicide"){
+            
+            $('.band-img frame').attr("src","../Word-Guess-Game/assets/images/teen.png");
+        
+        } else if (selectedBand == "the front bottoms"){
+            
+            $('.band-img frame').attr("src","../Word-Guess-Game/assets/images/front.jpg");
+        
+        } else if (selectedBand == "the hotelier") {
+            
+            $('.band-img frame').attr("src","../Word-Guess-Game/assets/images/thehotel.jpg");
+        
+        } 
+       
+        $('.band-song').css('display', 'block');
+        $('.button-options').css('display', 'block');
+       
+         // runs after letter checked
+         setTimeout(() => {
+            alert("you win");
         });
-        // reloads game
-        location.reload();
+
+        $('.reset-button').on('click', function(){
+   
+            // reloads game
+            location.reload();
+        })
+
     }
 
   });
