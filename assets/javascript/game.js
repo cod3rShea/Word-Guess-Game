@@ -1,7 +1,7 @@
 /*********************** 
     Arrays/Var
 ************************/
-var guesses = 5;
+var guesses = 6;
 var wrongLetters = [];
 var placeHolder = [];
 
@@ -30,78 +30,97 @@ $('#current-container').append(placeHolder);
 if (selectedBand == "ajj"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ajj.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/qGSkviwvjD0");
 
 } else if (selectedBand == "bob dylan") {
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/dylan.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/IwOfCgkyEj0");
 
 } else if (selectedBand == "cat be damned"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/cat.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/APlS5fcWhNw");
 
 } else if (selectedBand == "coma cinema"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/coma.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/0SmrfSTjSk0");
 
 } else if (selectedBand == "david bowie"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/bowie.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/1CCm-r_RwYI");
 
 } else if (selectedBand == "days n daze"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/daze.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/zNNXNBrehsE");
 
 } else if (selectedBand == "elvis depressedly"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/elvis.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/Tz8NKN2GAvU");
 
 } else if (selectedBand == "him"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/him.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/PWaZ9yg_LQ4");
 
 } else if (selectedBand == "hotel books"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/hotel.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/p-nG6QqRRX4");
 
 } else if ( selectedBand == "johnny hobo and the freight trains"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/johny.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/TRS9Bz0IH54&t=407s");
 
 } else if (selectedBand == "mathew lee cothranm"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/mathew.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/bHx8z_cYwLo");
 
 } else if (selectedBand == "my chemical romance"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/mcr.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/tiJzCahaN8w");
 
 } else if (selectedBand == "my pizza my world"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/pizza.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/B-TYc4Cpd48");
 
 } else if (selectedBand == "old gray"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/old.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/C7EeBDO44PM");
 
 } else if (selectedBand == "ramshackle glory"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/ram.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/pC3IrqUpm9U");
 
 } else if (selectedBand == "teen suicide"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/teen.png");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/iqI9YOPJ-Nk");
 
 } else if (selectedBand == "the front bottoms"){
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/front.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/8qq2X8BL4qA");
 
 } else if (selectedBand == "the hotelier") {
     
     $('.band-img img').attr("src","../Word-Guess-Game/assets/images/thehotel.jpg");
+    $('.video iframe').attr("src","https://www.youtube.com/embed/eyj06wPIHYQ");
 
 } 
 
 // press key function
+
 $(document).keypress(function(e) {
     var letterClicked = String.fromCharCode(e.which);
   
@@ -113,14 +132,38 @@ $(document).keypress(function(e) {
         $('#guessed-container').html("").append(wrongLetters);
         
         // loose if you guess wrong five times
-        if (wrongLetters.length > 4 ) {
-            $('.guesses-left-container').html("").append("You Loose");
-        } else {
+        if (wrongLetters.length == 1 ) {
+            $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/1.png");
+                //  subtract guesses
+                guesses -= 1;
+                // update guess container
+                $('.guesses-left-container').html("").append(guesses);
+        } else if(wrongLetters.length == 2 ) {
+            $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/2.png");
             //  subtract guesses
             guesses -= 1;
             // update guess container
             $('.guesses-left-container').html("").append(guesses);
-        }
+        } else if(wrongLetters.length == 3 ) {
+            $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/3.png");
+            //  subtract guesses
+            guesses -= 1;
+            // update guess container
+            $('.guesses-left-container').html("").append(guesses);
+        } else if(wrongLetters.length == 4 ) {
+            $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/4.png");
+            //  subtract guesses
+            guesses -= 1;
+            // update guess container
+            $('.guesses-left-container').html("").append(guesses);
+        } else if(wrongLetters.length == 5 ) {
+            $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/5.png");
+            guesses -= 1;
+            $('.guesses-left-container').html("").append(guesses);
+        } else if(wrongLetters.length == 6 ) {
+            $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/6.png");
+            $('.guesses-left-container').html("").append("<h2 class='lose'>You Loose</h2>");
+        } 
     } else {
         // split selected band string and map through it.
         selectedBand.split("").map((letter, index) => {
@@ -137,81 +180,9 @@ $(document).keypress(function(e) {
      // checks to see if the placeholder is equal to the band name
     if (placeHolder.join("") == selectedBand) {
        
-        if (selectedBand == "ajj"){
-            $('.video iframe').attr("src","https://www.youtube.com/embed/qGSkviwvjD0");
-        
-        } else if (selectedBand == "bob dylan") {
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/IwOfCgkyEj0");
-        
-        } else if (selectedBand == "cat be damned"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/APlS5fcWhNw");
-        
-        } else if (selectedBand == "coma cinema"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/0SmrfSTjSk0");
-        
-        } else if (selectedBand == "david bowie"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/1CCm-r_RwYI");
-        
-        } else if (selectedBand == "days n daze"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/zNNXNBrehsE");
-        
-        } else if (selectedBand == "elvis depressedly"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/Tz8NKN2GAvU");
-        
-        } else if (selectedBand == "him"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/PWaZ9yg_LQ4");
-        
-        } else if (selectedBand == "hotel books"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/p-nG6QqRRX4");
-        
-        } else if ( selectedBand == "johnny hobo and the freight trains"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/TRS9Bz0IH54&t=407s");
-        
-        } else if (selectedBand == "mathew lee cothranm"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/bHx8z_cYwLo");
-        
-        } else if (selectedBand == "my chemical romance"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/tiJzCahaN8w");
-        
-        } else if (selectedBand == "my pizza my world"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/B-TYc4Cpd48");
-        
-        } else if (selectedBand == "old gray"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/C7EeBDO44PM");
-        
-        } else if (selectedBand == "ramshackle glory"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/pC3IrqUpm9U");
-        
-        } else if (selectedBand == "teen suicide"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/iqI9YOPJ-Nk");
-        
-        } else if (selectedBand == "the front bottoms"){
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/8qq2X8BL4qA");
-        
-        } else if (selectedBand == "the hotelier") {
-            
-            $('.video iframe').attr("src","https://www.youtube.com/embed/eyj06wPIHYQ&list=RDEMnfn8hvb5be6xJjEztOaIUw&index=4");
-        
-        } 
-       
         $('.video').css('display', 'block');
         $('.button-options').css('display', 'block');
+        $('.band-img').css('display', 'none');
        
          // runs after letter checked
          setTimeout(() => {
@@ -219,7 +190,6 @@ $(document).keypress(function(e) {
         });
 
         $('.reset-button').on('click', function(){
-   
             // reloads game
             location.reload();
         })

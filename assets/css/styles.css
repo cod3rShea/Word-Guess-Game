@@ -72,3 +72,7 @@ h1 {
   .reset-button:focus {
     outline: 0;
   }
+
+  .lose {
+      color: red;
+  }
