@@ -5,8 +5,8 @@ var guesses = 6;
 var wrongLetters = [];
 var placeHolder = [];
 var wins = 0;
+// save for reset
 var shouldContinue = false;
-var wins = 0;
 
 // Band Names array
 var bandNames = ["AJJ", "Bob Dylan", "cat be damned", "Coma Cinema", "David Bowie", "Days N Daze", "elvis depressedly", "HIM", "Hotel Books", "Johnny Hobo And The Freight Trains", "mathew lee cothranm", "My Chemical Romance", "My Pizza My World", "Old Gray", "Ramshackle Glory", "teen suicide", "The Front Bottoms", "The Hotelier"];
@@ -87,101 +87,103 @@ function pickBand() {
     } 
 }
 
-
-
 if (wins == 0) {
     pickBand();
 }
 
+alert('Press The Enter Key To Start');
 
-$( document ).ready(function() {
-    
-
-    $(document).keypress(function(e) {
-        var letterClicked = String.fromCharCode(e.which);
-        console.log(wrongLetters.length );
-        
-        if (wrongLetters.length < 6) {
-            if (selectedBand.indexOf(letterClicked) < 0 && wrongLetters.indexOf(letterClicked) < 0 && placeHolder.join("") != selectedBand) {
-                // add wrong guess to wrong letter array
-                wrongLetters.push(letterClicked);
-        
-                // append the wrong letters to the guessed letter container
-                $('#guessed-container').html("").append(wrongLetters);
-                
-                // loose if you guess wrong five times
-                if (wrongLetters.length == 1 ) {
-                    $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/1.png");
+$(document).keypress(function(event){
+	
+	var keycode = (event.keyCode ? event.keyCode : event.which);
+	if(keycode == '13'){
+	    $(document).keypress(function(e) {
+            var letterClicked = String.fromCharCode(e.which);
+            console.log(wrongLetters.length );
+            
+            if (wrongLetters.length < 6) {
+                if (selectedBand.indexOf(letterClicked) < 0 && wrongLetters.indexOf(letterClicked) < 0 && placeHolder.join("") != selectedBand) {
+                    // add wrong guess to wrong letter array
+                    wrongLetters.push(letterClicked);
+            
+                    // append the wrong letters to the guessed letter container
+                    $('#guessed-container').html("").append(wrongLetters);
+                    
+                    // loose if you guess wrong five times
+                    if (wrongLetters.length == 1 ) {
+                        $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/1.png");
+                            //  subtract guesses
+                            guesses -= 1;
+                            // update guess container
+                            $('.guesses-left-container').html("").append(guesses);
+                    } else if(wrongLetters.length == 2 ) {
+                        $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/2.png");
                         //  subtract guesses
                         guesses -= 1;
                         // update guess container
                         $('.guesses-left-container').html("").append(guesses);
-                } else if(wrongLetters.length == 2 ) {
-                    $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/2.png");
-                    //  subtract guesses
-                    guesses -= 1;
-                    // update guess container
-                    $('.guesses-left-container').html("").append(guesses);
-                } else if(wrongLetters.length == 3 ) {
-                    $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/3.png");
-                    //  subtract guesses
-                    guesses -= 1;
-                    // update guess container
-                    $('.guesses-left-container').html("").append(guesses);
-                } else if(wrongLetters.length == 4 ) {
-                    $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/4.png");
-                    //  subtract guesses
-                    guesses -= 1;
-                    // update guess container
-                    $('.guesses-left-container').html("").append(guesses);
-                } else if(wrongLetters.length == 5 ) {
-                    $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/5.png");
-                    guesses -= 1;
-                    $('.guesses-left-container').html("").append(guesses);
-                } else if(wrongLetters.length == 6 ) {
-                    $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/6.png");
-                    $('.guesses-left-container').html("").append("<h2 class='lose'>You Lose</h2>");
-                    var canContinue = false;
-                    console.log(wrongLetters.length);
-                    console.log(canContinue);
-                } 
-            } else {
-                // split selected band string and map through it.
-                selectedBand.split("").map((letter, index) => {
-                    // checks to see if one of the split letters are equal to the button pressed
-                    if (letter.toLowerCase() === letterClicked) {
-                        placeHolder[index] = selectedBand[index];
+                    } else if(wrongLetters.length == 3 ) {
+                        $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/3.png");
+                        //  subtract guesses
+                        guesses -= 1;
+                        // update guess container
+                        $('.guesses-left-container').html("").append(guesses);
+                    } else if(wrongLetters.length == 4 ) {
+                        $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/4.png");
+                        //  subtract guesses
+                        guesses -= 1;
+                        // update guess container
+                        $('.guesses-left-container').html("").append(guesses);
+                    } else if(wrongLetters.length == 5 ) {
+                        $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/5.png");
+                        guesses -= 1;
+                        $('.guesses-left-container').html("").append(guesses);
+                    } else if(wrongLetters.length == 6 ) {
+                        $('.hangman-img img').attr("src","../Word-Guess-Game/assets/images/hang/6.png");
+                        $('.guesses-left-container').html("").append("<h2 class='lose'>You Lose</h2>");
+                        var canContinue = false;
+                        console.log(wrongLetters.length);
+                        console.log(canContinue);
                     } 
-                });  
-            }
-            
-            $('#current-container').html(placeHolder);
+                } else {
+                    // split selected band string and map through it.
+                    selectedBand.split("").map((letter, index) => {
+                        // checks to see if one of the split letters are equal to the button pressed
+                        if (letter.toLowerCase() === letterClicked) {
+                            placeHolder[index] = selectedBand[index];
+                        } 
+                    });  
+                }
                 
-            // checks to see if the placeholder is equal to the band name
-            if (placeHolder.join("") == selectedBand) {
-                wins += 1;
-                $('.video').css('display', 'block');
-                $('.button-options').css('display', 'block');
-                $('.band-img').css('display', 'none');
-                $('.wins-container').css('display', "block").html('').append("<p>" + wins + "</p>");
-
-                // runs after letter checked
-                setTimeout(() => {
-                    alert("you win");
-                });
-        
-                $('.reset-button').on('click', function(){
-                    // reloads game
-                    location.reload();
-                });
-
-               
-               console.log(wins);
-            }    
-        }
+                $('#current-container').html(placeHolder);
+                    
+                // checks to see if the placeholder is equal to the band name
+                if (placeHolder.join("") == selectedBand) {
+                    wins += 1;
+                    $('.video').css('display', 'block');
+                    $('.button-options').css('display', 'block');
+                    $('.band-img').css('display', 'none');
+                    $('.wins-container').css('display', "block").html('').append("<p>" + wins + "</p>");
+            
+                    $('.reset-button').on('click', function(){
+                        // reloads game
+                        location.reload();
+                    });
     
-    });
+                        // runs after letter checked
+                    setTimeout(() => {
+                        alert("you win");
+                    });
+        
+                }    
+            }
+        
+        });
+	}
+	
 });
+
+
 
 
     
