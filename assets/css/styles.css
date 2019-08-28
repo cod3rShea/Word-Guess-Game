@@ -90,3 +90,7 @@ p {
   .lose {
       color: red;
   }
+
+  .wins-container {
+      display: none;
+  }
